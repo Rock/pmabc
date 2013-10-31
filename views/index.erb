@@ -1,0 +1,19 @@
+<a target="_blank" href="/edit">修改排期表</a>
+<br/>
+<table class="table table-bordered table-hover table-condensed">
+  <tr>
+    <th>项目</th>
+    <% (Date.parse("2013-10-14")..Date.parse("2013-12-20")).each do |day| %>
+      <th <%= color_for_resource_in_day(day) %> ><%=day.to_s%></th>
+    <% end %>
+  </tr>
+
+  <% @resources.to_a.each do |resource| %>
+    <tr>
+      <td><%= resource.first %></td>
+      <% (Date.parse("2013-10-14")..Date.parse("2013-12-20")).each do |day| %>
+        <td <%= color_for_resource_in_day(day, resource) %> title='<%=resource.first%>' ><%=resource_in_day(resource, day)%></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
