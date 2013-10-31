@@ -4,7 +4,6 @@ require 'sinatra'
 require 'date'
 Data_File = "data/data.txt"
 
-
 helpers do 
   def resource_in_day(resource, day)
     return '' if is_weekend?(day)
